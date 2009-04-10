@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+from omapi import Omapi
+a = Omapi('192.168.1.1',7911,'NET_UPDATER', 'HHJ7346IOAAAAAAAAAAAAAA==')
+#print a.lookup_ip('0:16:76:c9:14:9b')
+#print a.lookup_mac('172.22.12.30')
+#print a.lookup_host_ip('00:16:76:c9:14:9b')
+print a.lookup_host_ip('0:15:C5:68:5E:75')
+#print a.lookup_host_mac('172.22.12.4')
+#print a.add_host('172.22.12.6','11:22:33:44:55:66')
+#print a.add_host('172.22.12.6','11:22:33:44:55:66')
+#print a.lookup_host_ip('11:22:33:44:55:66')
+#print a.lookup_host_mac('172.22.12.6')
+#print a.lookup_lease_mac('172.22.18.19')
+#print a.del_host(None, '172.22.12.6')
+#print a.del_host('11:22:33:44:55:66',None)
+#print a.add_host('172.22.12.6','11:22:33:44:55:66')
+#print a.del_host('11:22:33:44:55:66','172.22.12.6')
+#print a.add_host('172.22.12.6','11:22:33:44:55:66')
+#print a.del_host('11:22:33:44:55:66','')
+#print a.del_host('11:22:33:44:55:66','')
+#print a.lookup_host_mac('172.22.12.2')
+#
