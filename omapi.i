@@ -78,11 +78,8 @@ void add_host( char *ip,  char *mac) {
         dhcpctl_status status;
         dhcpctl_status status2;
         dhcpctl_handle hp = NULL;
-        dhcpctl_data_string result = NULL;
         dhcpctl_data_string ds = NULL;
         omapi_data_string_t *nds;
-        struct in_addr addr;
-        char *ret;
 
         if ((status = dhcpctl_new_object(&hp, self->conn, "host"))) dhcpctl_error("host create failed", status);
 
@@ -112,7 +109,7 @@ void add_host( char *ip,  char *mac) {
         if (status2) {
                 dhcpctl_error("add",status2);
                 omapi_object_dereference(&hp,__FILE__,__LINE__);
-                return NULL;
+                return;
         }
 
         omapi_object_dereference(&hp,__FILE__,__LINE__);
@@ -124,9 +121,7 @@ void del_host( char *mac, char *hostname ) {
         dhcpctl_status status;
         dhcpctl_status status2;
         dhcpctl_handle hp = NULL;
-        dhcpctl_data_string result = NULL;
         dhcpctl_data_string ds = NULL;
-        struct in_addr addr;
         omapi_data_string_t *nds;
         char *ret;
 
@@ -178,7 +173,6 @@ char *lookup_lease_ip( char *mac) {
         if ((status = dhcpctl_wait_for_completion(hp, &status2))) dhcpctl_error("Completion failed",status);
         if (status2) {
                 omapi_object_dereference(&hp,__FILE__,__LINE__);
-//                printf("not found\n");
                 return NULL;
         }
 
@@ -216,7 +210,6 @@ char *lookup_host_ip( char *mac) {
         if ((status = dhcpctl_wait_for_completion(hp, &status2))) dhcpctl_error("Completion failed",status);
         if (status2) {
                 omapi_object_dereference(&hp,__FILE__,__LINE__);
-//                printf("not found\n");
                 return NULL;
         }
 
@@ -253,13 +246,11 @@ char *lookup_lease_mac( char *ip) {
         if ((status = dhcpctl_wait_for_completion(hp, &status2))) dhcpctl_error("Completion failed",status);
   
         if (status2) {
-//                printf("not found\n");
                 omapi_object_dereference(&hp,__FILE__,__LINE__);
                 return NULL;
         }
 
         if ((status = dhcpctl_get_value(&result, hp, "hardware-address"))) {
- //               printf("no hardware address\n");
                 omapi_object_dereference(&hp,__FILE__,__LINE__);
                 return NULL;
         }
@@ -276,7 +267,6 @@ char *lookup_host_mac( char *hostname) {
         dhcpctl_status status2;
         dhcpctl_handle hp = NULL;
         dhcpctl_data_string result = NULL;
-        dhcpctl_data_string ds = NULL;
         omapi_data_string_t *nds;
         char *ret;
 
@@ -292,13 +282,11 @@ char *lookup_host_mac( char *hostname) {
 
         if ((status = dhcpctl_wait_for_completion(hp, &status2))) dhcpctl_error("Completion failed",status);
         if (status2) {
-//                printf("not found\n");
                 omapi_object_dereference(&hp,__FILE__,__LINE__);
                 return NULL;
         }
 
         if ((status = dhcpctl_get_value(&result, hp, "hardware-address"))) {
-//                printf("no hardware address\n");
                 omapi_object_dereference(&hp,__FILE__,__LINE__);
                 return NULL;
         }

@@ -1,0 +1,11 @@
+python-omapic (2.0) UNRELEASED; urgency=low
+
+  * New functions in the PyOMAPIc module
+
+ -- root <root@lenny-amd64-builder>  Tue, 20 Oct 2009 13:21:19 +0400
+
+python-omapic (1.99) UNRELEASED; urgency=low
+
+  * Initial release. (Closes: #XXXXXX)
+
+ -- root <root@lenny-amd64-builder>  Tue, 20 Oct 2009 12:33:00 +0400
