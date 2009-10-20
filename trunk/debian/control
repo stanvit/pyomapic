@@ -1,0 +1,14 @@
+Source: python-omapic
+Section: python
+Priority: optional
+Maintainer: Stas Vitkovsky
+Build-Depends: debhelper, dhcp3-dev, swig, python-central
+XS-Python-Version: current
+Standards-Version: 3.8.1
+
+Package: python-omapic
+Architecture: any
+Homepage: http://code.google.com/p/pyomapic/
+XB-Python-Version: ${python:Versions}
+Depends: ${misc:Depends}, ${python:Depends}
+Description: Python interface to the ISC DHCP OMAPI interface 
